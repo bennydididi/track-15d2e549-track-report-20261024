@@ -1,0 +1,5326 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>小进口商HS编码归类关税预警-60分 · 完整证据包</title><style>body{margin:0;font-family:-apple-system,"PingFang SC","Noto Sans SC",sans-serif;background:#0f1419;color:#e7ecf3;line-height:1.65}
+.top{position:sticky;top:0;background:#0f1419ee;border-bottom:1px solid #2a3548;padding:8px 16px}.top a{color:#9aa8bc;margin-right:10px;font-size:13px;text-decoration:none}
+.wrap{max-width:980px;margin:0 auto;padding:20px}a{color:#5b9fd4}table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid #2a3548;padding:4px 8px}
+pre,code{background:#121a26;white-space:pre-wrap}h2.sec{border-top:2px solid #5b9fd4;padding-top:16px;margin-top:40px}</style></head><body><div class="top"><a href="#report">完整报告</a><a href="#serp">serp.md</a><a href="#sop-criteria">sop-criteria.md</a><a href="#sop-v3">sop-v3.md</a><a href="#files">证据文件</a></div><div class="wrap"><section id="report"><h2 class="sec">完整报告</h2><p>这个产品帮助从中国重复进货到美国的小进口商，在补货期间跟踪已确认的商品编码时，解决与自己商品有关的关税变化获知太晚、官方通知难以筛选的问题。</p>
+<h1 id="hs">小进口商 HS 编码归类关税预警：只评“已有编码的关税变更提醒”</h1>
+<p>调研日：2026-10-24。HS 是商品海关分类体系；HTS 是美国使用的关税表及其商品编码。事实、厂商自述、研究判断和试验假设分开标注。</p>
+<h2 id="_1">一分钟决策</h2>
+<table>
+<thead>
+<tr>
+<th>钉死的研究对象</th>
+<th>本次范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>谁</td>
+<td>向美国重复进口、没有专职贸易合规人员、已有报关行确认编码的小进口商；先限中国原产商品。不是替客户归类的报关行。</td>
+</tr>
+<tr>
+<td>场景</td>
+<td>商品编码已确定，采购至到港期间需要知道政策是否影响下一批货。</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>商品 CSV：内部商品编号、已确认的美国 HTS 编码、原产地、预计进口日期。缺资料先补齐。</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>相关商品清单、变更前后税率（能够确定时）、生效日、官方文件链接和待确认条件；邮件提醒并保存记录。</td>
+</tr>
+<tr>
+<td>只判一个用户任务</td>
+<td><strong>把官方关税变化匹配到我的既有商品，及时告诉我哪些需要复核。</strong>不承诺预测未来政策或保证最终应纳税额。</td>
+</tr>
+<tr>
+<td>相邻机会，只列表</td>
+<td>商品描述→自动归类；发票→报关资料；编码→一次性税费/落地成本计算；反倾销/反补贴适用性判断；旧编码→新编码映射；历史报关退税审计。均不计主搜索量、付费证明或竞争评分。</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>三维决策</th>
+<th>当前判断</th>
+<th>决定性依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>有没有相关需求</td>
+<td><strong>有，但主动用户证据薄。</strong></td>
+<td>有进口卖家自述在货物受影响后才得知变更；官方也持续发布关税表版本。不能据此估计发生率。<a href="https://www.reddit.com/r/FulfillmentByAmazon/comments/1uscjoe/how_are_you_guys_actually_keeping_up_with_tariff/">用户原帖</a>、<a href="https://www.usitc.gov/harmonized_tariff_information/hts/archive/list">USITC 版本库</a></td>
+</tr>
+<tr>
+<td>当前切口能否独立收费</td>
+<td><strong>待验证；已有直接收费供给，目标客户的付费 PMF 未证明。</strong></td>
+<td>HTSAlert 将监控单独销售；同时存在免费监控。公开报价、免费用户、企业套件案例均不能替代小进口商的实际付款与续费。<a href="https://htsalert.com/">HTSAlert</a>、<a href="https://www.customsgenius.com/radar">免费 Radar</a></td>
+</tr>
+<tr>
+<td>是否优先靠 SEO</td>
+<td><strong>暂不优先。保留小规模工具页试验，不做大规模内容站。</strong></td>
+<td>主任务词没有可确认的正数月搜；旧表的“0”有采集歧义；美国结果样本不满十条。查码、计算器流量不能移给提醒任务。<a href="https://api.pxany.com/v1/keyword-volumes">供应商接口</a>、<a href="https://www.google.com/search?q=tariff+alerts+by+hts+code&amp;gl=us&amp;hl=en">同任务搜索入口</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>建议：继续低成本付费验证，暂不立项完整 SaaS。</strong> 最有可能改变决定的未知是：客户用过免费监控后，是否还愿意为更可信、更及时的同任务提醒续费，而不是顺带购买归类、退税或咨询。下一步做同一批商品的免费产品对照与一个月付费试点；首付、复用、续费分别记录，阈值见后文。</p>
+<p>下表逐项对照专员与现行筛选标准；分数均为研究判断，各项满分 5。专员旧五项与现行五项不同，不能硬移分。</p>
+<table>
+<thead>
+<tr>
+<th>现行五项</th>
+<th style="text-align: right;">专员原分</th>
+<th style="text-align: right;">核实后分</th>
+<th>关键依据及边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①需求真实</td>
+<td style="text-align: right;">5（原“需求量”）</td>
+<td style="text-align: right;">4</td>
+<td>主动监控投诉存在，但可靠全量频次未找到；归类工作量不计入这里。<a href="https://www.reddit.com/r/FulfillmentByAmazon/comments/1uscjoe/how_are_you_guys_actually_keeping_up_with_tariff/">原帖</a></td>
+</tr>
+<tr>
+<td>②付费意愿</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td>同任务产品有公开月费；目标小进口商的独立付费、续费人数未找到。<a href="https://htsalert.com/">HTSAlert</a>、<a href="https://www.portrobin.com/pricing">PortRobin</a></td>
+</tr>
+<tr>
+<td>③好服务</td>
+<td style="text-align: right;">未评分</td>
+<td style="text-align: right;">2</td>
+<td>用户虽非专家，却会用提醒做采购决策；误报、漏报和生效日出错都有后果。厂商自己将准确性视为核心。<a href="https://htsalert.com/about">监控方法</a></td>
+</tr>
+<tr>
+<td>④小团队做得动</td>
+<td style="text-align: right;">4（原“小团队”）</td>
+<td style="text-align: right;">3</td>
+<td>有独立开发者运营的同任务软件；官方版本可下载，但规则维护和异常复核不能省略。<a href="https://htsalert.com/about">运营者自述</a>、<a href="https://www.usitc.gov/harmonized_tariff_information/hts/archive/list">官方版本库</a></td>
+</tr>
+<tr>
+<td>⑤形态简单</td>
+<td style="text-align: right;">未评分</td>
+<td style="text-align: right;">3</td>
+<td>输入可用表格，后台却要持续采集、匹配、去重、保留版本，不是一次提交出结果的表单。<a href="https://htshero.com/tariff-monitor">同任务工作流</a></td>
+</tr>
+</tbody>
+</table>
+<p>专员原“AI 友好”4、“B 端”5不等于现标准的“好服务”和“形态简单”。需求来源及旧报告已随证据包保存；没有公开托管链接，不伪造网页来源。</p>
+<h2 id="_2">判断依据</h2>
+<h3 id="1">1. 真痛点是“谁负责持续盯住我的商品”，不是再生成一个编码</h3>
+<p><strong>支持：重复进口期间存在无人跟踪的空档。反证：部分卖家能靠手动检查、报关行或接受涨价解决，并不自然形成订阅。</strong></p>
+<table>
+<thead>
+<tr>
+<th>原声及用户</th>
+<th>抱怨哪一步／现用办法</th>
+<th>日期、热度与证据强弱</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FBA 版卖家自述：在货已受影响后“2 weeks after it already hit a shipment”才从 LinkedIn 得知。<a href="https://www.reddit.com/r/FulfillmentByAmazon/comments/1uscjoe/how_are_you_guys_actually_keeping_up_with_tariff/">原帖</a></td>
+<td>政策→自己的商品→及时获知这一段失败；发帖询问手查 CBP、找报关行还是吸收成本。未提自己已购买软件。</td>
+<td>当前页显示约 3 个月前；绝对发帖日、票数、评论总数<strong>未找到</strong>。可核主文，身份和损失未独立审计。支持需求存在，不证明常见或愿付费。</td>
+</tr>
+<tr>
+<td>同帖从业回复推荐 CSMS 和盯自己的编码；另有回复选择涨价或接受成本。<a href="https://www.reddit.com/r/FulfillmentByAmazon/comments/1uscjoe/how_are_you_guys_actually_keeping_up_with_tariff/">原帖</a></td>
+<td>CSMS 是 CBP 的消息服务；官方材料确认可订阅邮件。有人已有可接受替代。<a href="https://www.cbp.gov/sites/default/files/documents/ACE101_June_4_Presentation_Slides.pdf">CBP 材料</a></td>
+<td>同一线程，不另算独立需求。自称开发者并推广工具的回复不算客户证明。</td>
+</tr>
+<tr>
+<td>Alibaba 版监控帖回复：“The values don't change that often.”<a href="https://www.reddit.com/r/Alibaba/comments/1tr9wko/anyone_here_actually_tracking_tariffhscode/">原帖</a></td>
+<td>手动查编码和叠加税项；认为正常情况下变化不频繁。</td>
+<td>页面约 5 个月前；精确日期、票数、评论总数<strong>未找到</strong>。主帖明确推广 RiskSim AI，排除主动投诉，仅保留回复反证。</td>
+</tr>
+<tr>
+<td>smallbusiness 版询问关税损失和跟踪方式。<a href="https://www.reddit.com/r/smallbusiness/comments/1v1ixzf/importersdropshippers_has_a_tariff_or_duty_change/">原帖</a></td>
+<td>是市场调研提问；回复建议按同一商品比较各批次成本，没有可核监控订阅付款。</td>
+<td>搜索缓存标 2026-07-20、+7；当前页面不显示票数，评论总数<strong>未找到</strong>。排除主动投诉。<a href="https://www.reddit.com/r/smallbusiness/comments/1v1ixzf/importersdropshippers_has_a_tariff_or_duty_change/">搜索所得原页</a></td>
+</tr>
+<tr>
+<td>AmazonFBA 版电子产品卖家拟做提醒工具，问用户愿付多少。<a href="https://www.reddit.com/r/AmazonFBA/comments/1sf8s21/how_are_you_tracking_tariff_changes_on_your/">原帖</a></td>
+<td>自述损失后开始开发；提出的价格属于创业者试价。</td>
+<td>搜索缓存标 2026-04-07、+2，已超本次半年窗口；排除主动投诉及付费证据。<a href="https://www.reddit.com/r/AmazonFBA/comments/1sf8s21/how_are_you_tracking_tariff_changes_on_your/">原页</a></td>
+</tr>
+</tbody>
+</table>
+<p>本次上述与监控直接相关的 <strong>4 个线程</strong>中，只保留 <strong>1 个非明确调研/推广的主动痛点线程</strong>；“得知太晚”计 <strong>1 次</strong>，明确确认购买本任务 SaaS 的陈述计 <strong>0 次</strong>。这是人工选样计数，不是版块发生率，也不是“市场无人付款”。来源为上表四条原帖；排序表见证据包 <code>reddit-selected.json</code>。</p>
+<p>Reddit 方法：核心从业版块选 <code>r/CustomsBroker</code>、<code>r/importexport</code>，FBA、Alibaba 仅补相关讨论。以 2026-04-24—2026-10-24 为窗口请求 Arctic Shift；两个核心版块各试两次、间隔 3 秒，均 DNS 失败；因此未取得半年全量，退回 <code>site:reddit.com</code>。没有可靠评论总数，不能按评论数排序；可见票数只用于两个非合格样本的降序展示，不用旧报告票数填空。<a href="https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=CustomsBroker&amp;after=2026-04-24&amp;before=2026-10-25&amp;limit=100">Arctic 接口</a>、<a href="https://www.reddit.com/r/FulfillmentByAmazon/comments/1uscjoe/how_are_you_guys_actually_keeping_up_with_tariff/">Reddit 入口</a>。详细请求与错误保存在 <code>arctic-attempts.json</code>。</p>
+<h3 id="2">2. 商业供给对口，但报价还不是独立收费成立</h3>
+<p><strong>有竞品支持需求存在；当前缺的是“小进口商只为持续提醒付款并续费”的证据。免费方案已对口，但本轮未实测其覆盖和满意度，不能据此宣布收费机会不存在。</strong></p>
+<p>以下均为官网自述，未实测准确性或交付时效；只比较监控部分。</p>
+<table>
+<thead>
+<tr>
+<th>同任务玩家</th>
+<th>公开供给／价格</th>
+<th>能证明什么，不能证明什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTSAlert</td>
+<td>已知编码每日监控、变化邮件；免费监控 5 个编码，Starter <strong>$19/月</strong>、Pro <strong>$49/月</strong>、Broker <strong>$129/月</strong>；Pro 含 CSV 记录导出。<a href="https://htsalert.com/">官网</a></td>
+<td>切口本身已有独立售卖形态，运营者自称独立开发者。<a href="https://htsalert.com/about">方法页</a> 付费客户数、营收、续费、融资、可靠流量数据均<strong>未找到</strong>。</td>
+</tr>
+<tr>
+<td>HTS Hero Tariff Tracker</td>
+<td>编码＋原产地监控；当前首页 <strong>$12/月起</strong>，最多 10 组；监控页列 30 组 <strong>$29/月</strong>。<a href="https://htshero.com/">首页</a>、<a href="https://htshero.com/tariff-monitor">监控页</a></td>
+<td>同任务价格成立。监控页称被数百报关行、货代和制造商信任，未说明付费及小进口商占比。营收、续费和可靠流量<strong>未找到</strong>。旧定价页缓存显示 <strong>$49/月起</strong>，与现页冲突，不能混成统一现价。<a href="https://htshero.com/pricing-calculator">旧价页</a></td>
+</tr>
+<tr>
+<td>PortRobin Pro</td>
+<td><strong>$29/月</strong>，监控最多 100 个编码＋原产地组合；归类和成本工具同时打包。<a href="https://www.portrobin.com/pricing">定价</a></td>
+<td>证明监控被放进付费层；不能拆出监控收入或证明用户仅为提醒购买。客户数、营收、续费、融资、可靠流量<strong>未找到</strong>。</td>
+</tr>
+<tr>
+<td>Quickcode</td>
+<td>进口商方案 <strong>$2,099/月起</strong>，最多 25,000 个被监控商品，同时包含其他合规功能。<a href="https://quickcode.ai/pricing/">定价</a></td>
+<td>企业级同任务交付可见；Field Fastener 是厂商具名综合案例，未披露监控单项合同及目标小客户付款。不能用它通过当前切口 PMF 门槛。<a href="https://quickcode.ai/case-study-field-fastener-transforms-classifications-tariff-accuracy/">案例</a></td>
+</tr>
+<tr>
+<td>CustomsGenius Trade Radar</td>
+<td>按导入报关记录的编码与原产地筛选政策；页面明确 <strong>feed 和 digest 免费且独立，无需信用卡</strong>。<a href="https://www.customsgenius.com/radar">产品页</a></td>
+<td>免费替代直接命中筛选提醒任务。实际覆盖、漏报率及用户满意度<strong>未找到</strong>。是必须对照的产品，不是自动否决票。</td>
+</tr>
+</tbody>
+</table>
+<p>同任务搜索还出现 <a href="https://ustariffrates.com/alerts">USTariffRates 观察列表</a>、<a href="https://tariffclassify.ai/tariff-rate-alerts">TariffClassify 编码变化邮件</a>、<a href="https://www.importcostcalculator.com/tariff-alerts.html">ImportCostCalculator 类目变化邮件</a>；价格与使用效果未核实的部分不加付费分。它们说明仅做“填编码、收邮件”并非空白。</p>
+<p><strong>可切缝隙目前只是待验证假设：</strong> 用更容易整理的既有商品表导入、明确区分“公告已发／税表已更新／条件尚未确定”，在同一提醒里给出可追溯原文和版本。用户讨论支持“消息到自己商品之间缺人负责”，官方版本库支持保留依据；但竞争产品已覆盖不少这些功能，<strong>未找到竞品用户明确愿为上述差异迁移付费的证据</strong>。<a href="https://www.reddit.com/r/FulfillmentByAmazon/comments/1uscjoe/how_are_you_guys_actually_keeping_up_with_tariff/">用户线程</a>、<a href="https://www.usitc.gov/harmonized_tariff_information/hts/archive/list">版本库</a>、<a href="https://htshero.com/tariff-monitor">现有工作流</a></p>
+<h3 id="3-seo">3. SEO 暂无足够证据排第一，仍可低成本试</h3>
+<p><strong>先承接“我要监控我的编码”，不能用“我要查一个编码／算一次关税”的词代替。</strong> 以下是本次美国主任务的全部核心表达；月量来源为用户提供的 PXAny 快照，非 Google 官方保证值。数据对应原快照采集日 2026-10-24，供应商未给出可核统计窗口。<a href="https://api.pxany.com/v1/keyword-volumes">供应商量接口</a></p>
+<table>
+<thead>
+<tr>
+<th>美国核心词</th>
+<th>原快照</th>
+<th>最终可采信状态</th>
+<th>SERP 与页面承接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tariff monitoring software</td>
+<td>标 0</td>
+<td><strong>未返回，原 0 待核</strong></td>
+<td>Google 美国样本 9 条；软件、厂商内容、宏观追踪混合。页面提供导入并监控功能。<a href="https://htshero.com/tariff-monitor">对口产品入口</a></td>
+</tr>
+<tr>
+<td>tariff change alerts</td>
+<td>标 0</td>
+<td><strong>未返回，原 0 待核</strong></td>
+<td>样本 9 条，包含官方公告、提醒产品和新闻。页面交付按商品筛选的提醒。<a href="https://www.customsgenius.com/radar">同任务入口</a></td>
+</tr>
+<tr>
+<td>tariff alerts by hts code</td>
+<td>标 0</td>
+<td><strong>未返回，原 0 待核</strong></td>
+<td>样本 9 条，部分为查码或说明文；可承接观察列表。<a href="https://ustariffrates.com/alerts">直接结果页</a></td>
+</tr>
+<tr>
+<td>import duty change notifications</td>
+<td>标 0</td>
+<td><strong>未返回，原 0 待核</strong></td>
+<td>样本 9 条，含提醒工具、内容及非工具页。可承接邮件通知。<a href="https://tariffclassify.ai/tariff-rate-alerts">直接结果页</a></td>
+</tr>
+<tr>
+<td>tariff alerts for small importers</td>
+<td>标 0；原未查 SERP</td>
+<td><strong>未返回，原 0 待核</strong></td>
+<td>已补公开网页搜索，核读 3 个同任务入口：HTSAlert、HTS Hero、GingerControl。不是固定美国 Google 前十，不报告排名。<a href="https://htsalert.com/about">入口一</a>、<a href="https://htshero.com/tariff-monitor">入口二</a>、<a href="https://gingercontrol.com/products/compliance-radar">入口三</a></td>
+</tr>
+</tbody>
+</table>
+<p>上述每组原样本只有 <strong>9 条</strong>，不称“看完整前十”；第五词补查不提供完整排名结论。现有数据不能算可获点击、付费转化或流量回本，相关数值均<strong>未找到</strong>。搜索意图与功能本轮已核，量缺失不等于需求不真实。</p>
+<p><strong>搜索量审计影响结论：</strong> 原采集器对 <code>avgMonthlySearches</code> 缺失也写 0；原始 <code>metrics</code> 响应没有保留，无法确认“真 0”与“缺字段”。所以主任务词全部按“未返回／待核”处理，不说搜索量为零。本轮尝试重查 API，DNS 失败。高量相邻词没有进入当前切口的量或获客判断。<a href="https://api.pxany.com/v1/keyword-volumes">接口来源</a>；代码与网络日志随包保存。</p>
+<p>域名年龄仅观察：原快照记录 CustomsGenius 注册于 <strong>2025-11-13</strong>、USTariffRates 于 <strong>2026-02-26</strong>、ImportCostCalculator 于 <strong>2026-01-26</strong>；均有页面出现在相关样本。独立 RDAP 复核 DNS 失败，注册时间仍是供应商待复核值。<a href="https://rdap.verisign.com/com/v1/domain/CUSTOMSGENIUS.COM">RDAP：CustomsGenius</a>、<a href="https://rdap.verisign.com/com/v1/domain/USTARIFFRATES.COM">USTariffRates</a>、<a href="https://rdap.verisign.com/com/v1/domain/IMPORTCOSTCALCULATOR.COM">ImportCostCalculator</a>。这只能提示“有年轻域名值得继续查”，不能说明新站容易排名；其中还有免费产品和内容页，付费转化未知。</p>
+<h3 id="4">4. 远程交付可行，持续正确维护才是负担</h3>
+<p><strong>小团队可以做窄监控试点；不能把它按简单表单估工。</strong> USITC 提供版本及部分 CSV/XLS/JSON 文件，CBP 提供消息渠道，数据底座存在。<a href="https://www.usitc.gov/harmonized_tariff_information/hts/archive/list">版本库</a>、<a href="https://www.cbp.gov/sites/default/files/documents/ACE101_June_4_Presentation_Slides.pdf">CBP 材料</a> HTSAlert 的公开流程包括参考编码校验、异常变化拦截、分别保存检测日和法律生效日，说明可靠交付需要持续维护。<a href="https://htsalert.com/about">方法页</a></p>
+<p>本次只销售远程软件：CSV 导入、账户订阅、邮件和导出均可在线完成。归类、申报代理和逐票应税判断不纳入交付。CBP 的 H350722 涉及外国在线平台的 AI 归类等服务及执照问题；<strong>不能从“软件／用户确认”直接推导业务豁免</strong>。实际流程边界的专业核查结果<strong>未找到</strong>，上线前必须落实，否则小团队执行分继续下调。<a href="https://rulings.cbp.gov/api/getdoc/hq/2026/H350722.pdf">CBP 裁定检索原文</a></p>
+<p>【判断】AI 越强，通知抽取、关联候选商品、解释变化会更省工；客户购买的是持续跟踪与证据记录，价值不会因能聊天而消失。另一方面，基础匹配和摘要更容易复制，AI 也可能误读条件。主优势须来自可核来源、完整版本和稳定运营，不能用“AI 自动归类”替本切口加分。<a href="https://htsalert.com/about">同任务运营方法</a></p>
+<p>市场边界：Census 的 2024 年统计列出美国可识别进口企业 <strong>240,535 家</strong>，其中中小企业 <strong>234,023 家</strong>。这只是行业背景，包含不同规模和贸易模式；“从中国重复补货、有确定编码、缺监控且愿买软件”的目标企业数<strong>未找到</strong>，不拿大盘乘占有率推收入。<a href="https://www.census.gov/foreign-trade/Press-Release/edb/edbrel2024.pdf">官方报告第 4 页及表 6d</a></p>
+<p>【试验经济假设，非预测】试价 <strong>$29/月、最多 30 个编码＋原产地组合</strong>，参考同任务公开价，仍需付款验证。<a href="https://www.portrobin.com/pricing">价格参照</a> 若每账户每月支持 20 分钟，按内部工时 $30/小时记 $10，再假设数据及邮件 $3、收款等 $2，则单位贡献为 <strong>$29−$10−$3−$2＝$14/月</strong>；100 个付费账户月收入 $2,900、单位贡献合计 $1,400，尚未扣固定监控维护、获客、专业复核、税和创始人工资。所有成本、账户数是试验设定，实际值<strong>未找到</strong>。若要求三个月回收获客费，可承受 CAC 仅 <strong>$14×3＝$42</strong>；所以不能先铺内容再等收入。</p>
+<h3 id="5-seo">5. 最小验证：先证明付费，再分别证明复用、续费和 SEO</h3>
+<p>以下全部是<strong>拟执行阈值，不是已完成结果</strong>。本轮只调查与制备报告，没有联系用户、收款、注册竞品账户或测试真实提醒。</p>
+<table>
+<thead>
+<tr>
+<th>验证项</th>
+<th>最小动作／通过条件</th>
+<th>停止或调整条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可交付性</td>
+<td>用官方历史通知与专业复核建立 20 个变更／不变更对照案例；检查适用商品、条件、生效日和来源。再将同一小目录与免费 Radar、HTSAlert 对照。</td>
+<td>严重漏报、把不确定条件写成确定税率，先暂停对外自动发送并修复；若依赖大量逐票人工才能交付，停止当前 SaaS 方案。</td>
+</tr>
+<tr>
+<td><strong>首付</strong></td>
+<td>14 天内约访 10 家符合画像的进口商，让其看自己商品的真实样例与免费替代；至少 3 家预付一个月 $29，并说清为“监控提醒”购买的差异。</td>
+<td>未达门槛先改画像或价值；若客户普遍只为归类、退税或人工咨询付款，则当前切口未通过，不挪相邻收入补证。</td>
+</tr>
+<tr>
+<td><strong>复用</strong></td>
+<td>首月记录各账户是否维持有效商品目录、核看提醒并完成复核／采购动作；至少 2 家在另一补货节点继续使用同一监控任务。无真实变化时记录目录复核，不制造假通知。</td>
+<td>只用第一次导入／演示，后续无经营动作；或支持时间持续超过上述成本假设，重新评估。套餐内再次使用只算复用，不算再付款。</td>
+</tr>
+<tr>
+<td><strong>续费</strong></td>
+<td>到第二、第三个账期再看实际成功扣款；至少 2/3 的首付客户各续两个账期，单列退款、失联、拒续原因。</td>
+<td>没到扣款周期就写“未验证”；免费延长、自动续费开关和口头承诺都不算。小样本通过也只支持继续试点。</td>
+</tr>
+<tr>
+<td>SEO</td>
+<td>首付和交付通过后，先上线承接上述 5 个同任务表达的一个工具落地页，配少量有依据的用法页；观察 8 周 Search Console 意图、真实目录导入和付款来源。</td>
+<td>若查询始终只要免费查码/计算器，就不扩内容量；未被索引或无曝光先查技术与数据，不能直接判需求不存在。没有付费来源前不按排名推收入。</td>
+</tr>
+</tbody>
+</table>
+<p>免费工具若在目标客户实际对照中已经足够、客户也满意，且没有愿付费的同任务差异，应停止这个收费切口；本轮尚未取得这样的满意度证据。<strong>成熟 PMF 的前置门槛目前未过，建议级别为“验证”，不是“推荐开发”。</strong></p>
+<h2 id="_3">附录：评分、审计与词表</h2>
+<h3 id="a">A. 综合评分与旧结论修正</h3>
+<p>【内部研究判断】按现行五项等权折算：<strong>(4＋3＋2＋3＋3)÷25×100＝60/100</strong>。只评本次监控任务。该总分没有单独的 SEO 权重，不能冒充 SEO 优先级；三维决策优先。</p>
+<table>
+<thead>
+<tr>
+<th>旧依据</th>
+<th>本次处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>专员 22/25；旧深挖 65.5/100</td>
+<td>范围与评分维度不同，不能直接作同口径升降。原文件随证据包保留。</td>
+</tr>
+<tr>
+<td>15,000 件商品归类缓慢</td>
+<td>原话可核，讨论的是批量归类，排出当前任务。<a href="https://www.reddit.com/r/CustomsBroker/comments/1pdgve2/importers_requesting_classifications_in_advance/">原帖</a></td>
+</tr>
+<tr>
+<td>顾问高小时费证明本切口付费</td>
+<td>价格讨论可核，但买的是清关／归类咨询，不计监控付费。<a href="https://www.reddit.com/r/CustomsBroker/comments/1q25i9k/how_much_cost_a_customs_broker_hts_classification/">原帖</a></td>
+</tr>
+<tr>
+<td>smallbusiness “painful／surprise bill at the port”</td>
+<td>本次仍<strong>未找到</strong>所引两句；当前是调研主文，不能当主动投诉。<a href="https://www.reddit.com/r/smallbusiness/comments/1svt2lz/how_are_you_currently_handling_hts_codes_tariff/">原帖</a></td>
+</tr>
+<tr>
+<td>“Pick one code…document why…”旧报告称未找到</td>
+<td>本次在评论中找到，但该帖涉及英国混合商品归类；不计美国监控需求，且不采纳为合规建议。<a href="https://www.reddit.com/r/CustomsBroker/comments/1p5f1z1/struggling_with_hs_codes_for_mixed_imports_anyone/">原帖</a></td>
+</tr>
+<tr>
+<td>Incoclyse 证明小进口商软件需求</td>
+<td>帖内开发者自述及资料准备讨论，不证明监控付费。<a href="https://www.reddit.com/r/importexport/comments/1pn5usz/small_importers_what_do_you_usually_prepare/">原帖</a></td>
+</tr>
+<tr>
+<td>年轻域名／查码高量支持容易做 SEO</td>
+<td>均撤出该结论。原 SERP 甚至将 <code>hs code software</code> 返回为编程网站，<code>customs duty calculator</code> 返回为通用计算器；这些结果无效于当前任务。原始页与最终表分开保存。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="b">B. 搜索量四态与完整国家覆盖</h3>
+<p>原始 <strong>578 条市场×词记录</strong>来自用户给定的快照：<strong>124 条返回正数、367 条标“供应商返回0”、87 条未返回、0 条未查询</strong>。由于上述采集器问题，367 条“0”均待核；最终口径为 <strong>124 条正数、0 条可确认供应商数值0、454 条未返回/待核、0 条未查询</strong>。这是本次文件审计，不是供应商声称“全部未返回”，也不是这些词没有需求。新增公开网页补查表达未查询月量，单独记“未查询”，不并入原 578 条。<a href="https://api.pxany.com/v1/keyword-volumes">量数据接口来源</a></p>
+<table>
+<thead>
+<tr>
+<th>市场／语言</th>
+<th style="text-align: right;">原记录数</th>
+<th style="text-align: right;">原正数</th>
+<th style="text-align: right;">原标0待核</th>
+<th style="text-align: right;">原未返回</th>
+<th>同类监控表达（观察，不计美国主评分）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US／英语</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0</td>
+<td>上文五个主任务词，仅这五词进入主判断</td>
+</tr>
+<tr>
+<td>UK／英语</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">0</td>
+<td>tariff change alerts；当地税制未纳入当前交付</td>
+</tr>
+<tr>
+<td>CA／英语</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0</td>
+<td>tariff monitoring software；当地税制未纳入当前交付</td>
+</tr>
+<tr>
+<td>AU／英语</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">0</td>
+<td>import duty change notifications；当地税制未纳入当前交付</td>
+</tr>
+<tr>
+<td>DE／德语</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">5</td>
+<td>Änderungen Zolltarifnummer überwachen；兼有编码变更歧义</td>
+</tr>
+<tr>
+<td>FR／法语</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">6</td>
+<td>alertes modifications tarifaires douanières</td>
+</tr>
+<tr>
+<td>ES／西语</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">0</td>
+<td>alertas de cambios arancelarios</td>
+</tr>
+<tr>
+<td>IT／意语</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">0</td>
+<td>monitoraggio variazioni dazi doganali</td>
+</tr>
+<tr>
+<td>NL／荷语</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">6</td>
+<td>wijzigingen invoerrechten volgen</td>
+</tr>
+<tr>
+<td>JP／日语</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">44</td>
+<td>関税率 変更 通知；本词原状态就是“未返回”</td>
+</tr>
+<tr>
+<td>KR／韩语</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">26</td>
+<td>관세율 변경 알림</td>
+</tr>
+</tbody>
+</table>
+<p>上表是<strong>采集完整性审计</strong>，不加总为主任务搜索量。其余词按输入输出移入相邻任务，不重新打其他赛道分。完整逐词原值、最终状态、排除理由、样本链接在附件 <code>final-judgments.json</code> 和 <code>serp.md</code>；供应商数据需要认证，本轮没有可公开核验每条月量的网页，公开数值复核入口<strong>未找到</strong>。<a href="https://api.pxany.com/v1/keyword-volumes">供应商接口</a></p>
+<p>SERP 共取得 <strong>129 组</strong>原始结果，其中 <strong>116 组 9 条、12 组 8 条、1 组 10 条</strong>；本次主任务已有的四组均为 9 条。不能把全体 129 组、其他国家或相邻计算器的结果算成当前竞争样本。低量核心词仍检查意图和产品；其余外围词沿用单市场 &gt;200 的原采集门槛，排除词不补查。</p>
+<h3 id="c">C. 最终口径与缺失证据</h3>
+<ul>
+<li>唯一最终判定表为 <code>final-judgments.json</code>；<code>serp.json</code> 已同步同一内容，<code>serp.md</code> 由它生成。旧标签保留在 <code>raw_*</code> 字段与 <code>evidence/original-serp.*</code>，不再用于最终汇总。原 <code>kw/core.txt</code> 含多个任务，仅作为历史输入；当前五个核心词另存 <code>evidence/final-core.txt</code>。</li>
+<li>域名注册时间来自原供应商 RDAP 快照，本轮复核未成功；不以四舍五入的年龄判断是否刚好满一年。DR 未用于主结论。可靠自然流量、搜索转化率、直接产品的可审计营收及续费，均<strong>未找到</strong>。</li>
+<li>Arctic Shift 无全量；Reddit 当前精确日期、票数、评论总数缺失已逐项标明。网站页面与搜索缓存可能处于不同版本，HTS Hero 定价冲突已保留，不掩盖。</li>
+<li>证据包含原报告、SOP、筛选标准、Reddit 方法、原/最终 SERP、原关键词、公开网页摘录、采集代码、重试日志、试验参数与计时。公开报告托管链接：<strong>未找到（本轮未发布）</strong>；核心事实均提供上文可访问的官方／产品／原帖入口。</li>
+</ul>
+<h3 id="d">D. 用时</h3>
+<!-- TIMING --></section><section id="serp"><h2 class="sec">serp.md</h2><h1 id="serp-2026-10-24">SERP 最终判定（2026-10-24）</h1>
+<p>唯一口径：final-judgments.json。原始版本保存在 evidence/original-serp.json 与 original-serp.md。</p>
+<p>主任务只保留美国已知HTS+原产地的关税变更提醒。其他任务、市场不计主评分。</p>
+<p>旧表0因采集器缺失字段也转0，改为未返回待核；不宣称真实需求为0。域名年龄只保留观察线索。</p>
+<table>
+<thead>
+<tr>
+<th>市场</th>
+<th>词</th>
+<th>原量/状态</th>
+<th>最终量/状态</th>
+<th style="text-align: right;">SERP样本</th>
+<th>范围与最终判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US</td>
+<td>hs code software</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">8</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>hs code classification tool</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>import classification tool</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>customs classification software</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>tariff classification software</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>hts classification software</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>hs code finder</td>
+<td>170 / 返回正数</td>
+<td>170 / 返回正数</td>
+<td style="text-align: right;">8</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>hs code search tool</td>
+<td>260 / 返回正数</td>
+<td>260 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>hs code lookup by product description</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>find hs code for my product</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>ai hs code classification</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>automated hs code classification</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>bulk hs code classification</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>product catalog hs code classification</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>hs code validation tool</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>hts code lookup</td>
+<td>9900 / 返回正数</td>
+<td>9900 / 返回正数</td>
+<td style="text-align: right;">8</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>hts code finder</td>
+<td>880 / 返回正数</td>
+<td>880 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>commodity code finder</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>taric code lookup</td>
+<td>30 / 返回正数</td>
+<td>30 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>hs code classification for small business</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>hs code classification for ecommerce</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>hs code tool for shopify</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>tariff calculator</td>
+<td>3600 / 返回正数</td>
+<td>3600 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>import duty calculator</td>
+<td>1900 / 返回正数</td>
+<td>1900 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>customs duty calculator</td>
+<td>260 / 返回正数</td>
+<td>260 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>hts duty calculator</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>import tax calculator</td>
+<td>1900 / 返回正数</td>
+<td>1900 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>import duty and vat calculator</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>import duty lookup by hs code</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">8</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>customs duty by country of origin</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>us import duty calculator</td>
+<td>1900 / 返回正数</td>
+<td>1900 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>uk import duty calculator</td>
+<td>140 / 返回正数</td>
+<td>140 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>eu import duty calculator</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>china import tariff calculator</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>section 301 tariff calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>section 232 duty calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>additional import duty calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>landed cost calculator</td>
+<td>320 / 返回正数</td>
+<td>320 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>landed cost software</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">8</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>landed cost estimator</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>total import cost calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>landed cost per unit calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>import cost calculator with shipping</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>landed cost calculator for small business</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>landed cost calculator for amazon sellers</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>landed cost calculator for shopify</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>import supplier cost comparison calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>tariff monitoring software</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>主任务；供应商Google样本9条，未满十条；月搜未返回（旧0待核）；SEO暂不优先</td>
+</tr>
+<tr>
+<td>US</td>
+<td>tariff tracking tool</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>tariff change alerts</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>主任务；供应商Google样本9条，未满十条；月搜未返回（旧0待核）；SEO暂不优先</td>
+</tr>
+<tr>
+<td>US</td>
+<td>tariff alerts by hts code</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>主任务；供应商Google样本9条，未满十条；月搜未返回（旧0待核）；SEO暂不优先</td>
+</tr>
+<tr>
+<td>US</td>
+<td>import duty change notifications</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>主任务；供应商Google样本9条，未满十条；月搜未返回（旧0待核）；SEO暂不优先</td>
+</tr>
+<tr>
+<td>US</td>
+<td>hs code change alerts</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>tariff increase impact calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>tariff alerts for small importers</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>主任务；原供应商SERP未查询，公开网页补查3个相关入口；非美国Google前十；SEO暂不优先</td>
+</tr>
+<tr>
+<td>US</td>
+<td>antidumping duty lookup</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>antidumping duty calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>antidumping duty alerts for importers</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>antidumping duty check by product</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>ad cvd duty calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>US</td>
+<td>ad cvd case alerts for importers</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>hs code software</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>hs code classification tool</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>import classification tool</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">8</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>customs classification software</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>tariff classification software</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>hts classification software</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>hs code finder</td>
+<td>480 / 返回正数</td>
+<td>480 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>hs code search tool</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>hs code lookup by product description</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>find hs code for my product</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>ai hs code classification</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>automated hs code classification</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>bulk hs code classification</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>product catalog hs code classification</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>hs code validation tool</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>hts code lookup</td>
+<td>590 / 返回正数</td>
+<td>590 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>hts code finder</td>
+<td>260 / 返回正数</td>
+<td>260 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>commodity code finder</td>
+<td>260 / 返回正数</td>
+<td>260 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>taric code lookup</td>
+<td>30 / 返回正数</td>
+<td>30 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>hs code classification for small business</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>hs code classification for ecommerce</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>hs code tool for shopify</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>tariff calculator</td>
+<td>590 / 返回正数</td>
+<td>590 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>import duty calculator</td>
+<td>2400 / 返回正数</td>
+<td>2400 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>customs duty calculator</td>
+<td>210 / 返回正数</td>
+<td>210 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>hts duty calculator</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>import tax calculator</td>
+<td>2400 / 返回正数</td>
+<td>2400 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>import duty and vat calculator</td>
+<td>70 / 返回正数</td>
+<td>70 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>import duty lookup by hs code</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>customs duty by country of origin</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>us import duty calculator</td>
+<td>320 / 返回正数</td>
+<td>320 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>uk import duty calculator</td>
+<td>4400 / 返回正数</td>
+<td>4400 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>eu import duty calculator</td>
+<td>40 / 返回正数</td>
+<td>40 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>china import tariff calculator</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>section 301 tariff calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>section 232 duty calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>additional import duty calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>landed cost calculator</td>
+<td>70 / 返回正数</td>
+<td>70 / 返回正数</td>
+<td style="text-align: right;">8</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>landed cost software</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>landed cost estimator</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>total import cost calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>landed cost per unit calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>import cost calculator with shipping</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>landed cost calculator for small business</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>landed cost calculator for amazon sellers</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>landed cost calculator for shopify</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>import supplier cost comparison calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>tariff monitoring software</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>tariff tracking tool</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>tariff change alerts</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>tariff alerts by hts code</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>import duty change notifications</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>hs code change alerts</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>tariff increase impact calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>tariff alerts for small importers</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>antidumping duty lookup</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>antidumping duty calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>antidumping duty alerts for importers</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>antidumping duty check by product</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>ad cvd duty calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>ad cvd case alerts for importers</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>hs code software</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>hs code classification tool</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>import classification tool</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>customs classification software</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>tariff classification software</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>hts classification software</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">8</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>hs code finder</td>
+<td>260 / 返回正数</td>
+<td>260 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>hs code search tool</td>
+<td>20 / 返回正数</td>
+<td>20 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>hs code lookup by product description</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>find hs code for my product</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>ai hs code classification</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>automated hs code classification</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>bulk hs code classification</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>product catalog hs code classification</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>hs code validation tool</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>hts code lookup</td>
+<td>880 / 返回正数</td>
+<td>880 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>hts code finder</td>
+<td>210 / 返回正数</td>
+<td>210 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>commodity code finder</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>taric code lookup</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>hs code classification for small business</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>hs code classification for ecommerce</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>hs code tool for shopify</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>tariff calculator</td>
+<td>320 / 返回正数</td>
+<td>320 / 返回正数</td>
+<td style="text-align: right;">8</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>import duty calculator</td>
+<td>390 / 返回正数</td>
+<td>390 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>customs duty calculator</td>
+<td>40 / 返回正数</td>
+<td>40 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>hts duty calculator</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>import tax calculator</td>
+<td>390 / 返回正数</td>
+<td>390 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>import duty and vat calculator</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>import duty lookup by hs code</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>customs duty by country of origin</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>us import duty calculator</td>
+<td>170 / 返回正数</td>
+<td>170 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>uk import duty calculator</td>
+<td>20 / 返回正数</td>
+<td>20 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>eu import duty calculator</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>china import tariff calculator</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>section 301 tariff calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>section 232 duty calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>additional import duty calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>landed cost calculator</td>
+<td>40 / 返回正数</td>
+<td>40 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>landed cost software</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>landed cost estimator</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>total import cost calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>landed cost per unit calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>import cost calculator with shipping</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>landed cost calculator for small business</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>landed cost calculator for amazon sellers</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>landed cost calculator for shopify</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>import supplier cost comparison calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>tariff monitoring software</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>tariff tracking tool</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>tariff change alerts</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>tariff alerts by hts code</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>import duty change notifications</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>hs code change alerts</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>tariff increase impact calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>tariff alerts for small importers</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>antidumping duty lookup</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>antidumping duty calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>antidumping duty alerts for importers</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>antidumping duty check by product</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>ad cvd duty calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>ad cvd case alerts for importers</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>hs code software</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>hs code classification tool</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>import classification tool</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>customs classification software</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>tariff classification software</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>hts classification software</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">8</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>hs code finder</td>
+<td>50 / 返回正数</td>
+<td>50 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>hs code search tool</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>hs code lookup by product description</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>find hs code for my product</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>ai hs code classification</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>automated hs code classification</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>bulk hs code classification</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>product catalog hs code classification</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>hs code validation tool</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>hts code lookup</td>
+<td>390 / 返回正数</td>
+<td>390 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>hts code finder</td>
+<td>90 / 返回正数</td>
+<td>90 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>commodity code finder</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>taric code lookup</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>hs code classification for small business</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>hs code classification for ecommerce</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>hs code tool for shopify</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>tariff calculator</td>
+<td>40 / 返回正数</td>
+<td>40 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>import duty calculator</td>
+<td>720 / 返回正数</td>
+<td>720 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>customs duty calculator</td>
+<td>320 / 返回正数</td>
+<td>320 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>hts duty calculator</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>import tax calculator</td>
+<td>720 / 返回正数</td>
+<td>720 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>import duty and vat calculator</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>import duty lookup by hs code</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>customs duty by country of origin</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>us import duty calculator</td>
+<td>70 / 返回正数</td>
+<td>70 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>uk import duty calculator</td>
+<td>40 / 返回正数</td>
+<td>40 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>eu import duty calculator</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>china import tariff calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>section 301 tariff calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>section 232 duty calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>additional import duty calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>landed cost calculator</td>
+<td>30 / 返回正数</td>
+<td>30 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>landed cost software</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>landed cost estimator</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>total import cost calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>landed cost per unit calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>import cost calculator with shipping</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>landed cost calculator for small business</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>landed cost calculator for amazon sellers</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>landed cost calculator for shopify</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>import supplier cost comparison calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>tariff monitoring software</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>tariff tracking tool</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>tariff change alerts</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>tariff alerts by hts code</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>import duty change notifications</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>hs code change alerts</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>tariff increase impact calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>tariff alerts for small importers</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>antidumping duty lookup</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>antidumping duty calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>antidumping duty alerts for importers</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>antidumping duty check by product</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>ad cvd duty calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>ad cvd case alerts for importers</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Zolltarifnummer ermitteln</td>
+<td>390 / 返回正数</td>
+<td>390 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Zolltarifnummer suchen</td>
+<td>2400 / 返回正数</td>
+<td>2400 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Zolltarifnummer anhand Warenbeschreibung finden</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Zolltarifnummer prüfen</td>
+<td>170 / 返回正数</td>
+<td>170 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Zolltarifnummer Software</td>
+<td>40 / 返回正数</td>
+<td>40 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Zolltarifnummer automatisch ermitteln</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Zolltarifnummer mit KI ermitteln</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Zolltarifnummern für Produktkatalog ermitteln</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Warennummer ermitteln</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Warennummer prüfen</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Warentarifierung Software</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Zolltarifierung Software</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Software für zolltarifliche Einreihung</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Tarifierung online</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>HS-Code ermitteln</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>HS-Code Suche</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>HS-Code Klassifizierung Software</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>TARIC-Code suchen</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>KN-Code ermitteln</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Einfuhrzollsatz ermitteln</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Zollsatz nach Zolltarifnummer</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Zollsatz nach Ursprungsland</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Einfuhrabgaben Rechner</td>
+<td>70 / 返回正数</td>
+<td>70 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Zollrechner für Importe</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Zoll und Einfuhrumsatzsteuer berechnen</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Einfuhrumsatzsteuer Rechner</td>
+<td>590 / 返回正数</td>
+<td>590 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Einfuhrzoll berechnen</td>
+<td>140 / 返回正数</td>
+<td>140 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Zollkosten aus China berechnen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Einfuhrabgaben aus den USA berechnen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Importkosten Rechner</td>
+<td>30 / 返回正数</td>
+<td>30 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Importgesamtkosten berechnen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Importkosten inklusive Fracht und Zoll</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Einstandspreis Import berechnen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Einstandspreis pro Stück Import</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Einstandspreiskalkulation Import Software</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Importkosten für Onlinehändler berechnen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Importkosten Lieferanten vergleichen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Zolländerungen überwachen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Zollsatzänderungen Benachrichtigung</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Zolltarif Änderungen verfolgen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Änderungen Zolltarifnummer überwachen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Zusatzzölle prüfen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Zollerhöhung Auswirkungen berechnen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Antidumpingzoll prüfen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Antidumpingzoll berechnen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Antidumpingzoll nach Zolltarifnummer</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Antidumpingmaßnahmen überwachen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Antidumpingzoll Änderungen Benachrichtigung</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>logiciel classement tarifaire</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>outil de classement douanier</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>logiciel classification douanière</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>classement tarifaire automatique</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>classement tarifaire par IA</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>trouver le code douanier d'un produit</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>recherche code douanier par description</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>vérifier un code douanier</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>recherche code SH</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>outil recherche code SH</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>classification code SH automatique</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>classification douanière catalogue produits</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>recherche code NC</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>trouver un code TARIC</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>recherche nomenclature douanière</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>déterminer la nomenclature douanière</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>calculateur droits de douane</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>simulateur droits de douane</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">10</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>calcul droits et taxes à l'importation</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>calcul TVA à l'importation</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>calcul droits de douane par code SH</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>droits de douane selon pays d'origine</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>calcul droits de douane Chine</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>calcul droits de douane importation États-Unis</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>calcul droits de douane importation France</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>calculateur taxes importation UE</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>calcul coût total importation</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>simulateur coût importation</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>logiciel calcul coût importation</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>calcul prix de revient importation</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>calcul coût de revient rendu</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>calcul prix de revient importation par unité</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>calcul importation transport douane TVA</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>calcul coût importation pour e-commerce</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>comparateur coût importation fournisseurs</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>alertes modifications tarifaires douanières</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">8</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>suivi changements droits de douane</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>notification changement taux de douane</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>veille tarifaire douanière</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>logiciel suivi droits de douane</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>alerte changement code douanier</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>calcul impact hausse droits de douane</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>vérifier droits de douane additionnels</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>vérifier droits antidumping</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>recherche droits antidumping par code TARIC</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>calcul droits antidumping</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>alertes droits antidumping importation</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>suivi mesures antidumping importation</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>software de clasificación arancelaria</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">8</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>herramienta de clasificación arancelaria</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>clasificador arancelario en línea</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>clasificación arancelaria automática</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>clasificación arancelaria con inteligencia artificial</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>buscar código arancelario por producto</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>buscar código arancelario por descripción</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>verificar código arancelario</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>buscador de códigos arancelarios</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>buscador de partidas arancelarias</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>buscar subpartida arancelaria</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>buscar fracción arancelaria</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>buscar posición arancelaria</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>clasificación arancelaria de catálogo de productos</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>buscar código del sistema armonizado</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>buscar código TARIC</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>calculadora de aranceles</td>
+<td>20 / 返回正数</td>
+<td>20 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>simulador de aranceles de importación</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>calculadora de impuestos de importación</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>calcular aranceles por código arancelario</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>consultar aranceles por país de origen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>calcular IVA de importación</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>calcular aranceles e IVA de importación</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>calcular impuestos de importación México</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>calcular aranceles importación España</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>calcular aranceles importación desde China</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>calculadora de aranceles de Estados Unidos</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>calculadora de costo total de importación</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>calculadora de coste de importación</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>simulador de costos de importación</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>software de costos de importación</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>calcular costo de importación por unidad</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>calcular costo de importación con flete y seguro</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>calcular precio de costo de producto importado</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>calculadora de costos de importación para tiendas online</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>comparar costos de importación por proveedor</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>alertas de cambios arancelarios</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>monitoreo de aranceles de importación</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>seguimiento de cambios en códigos arancelarios</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>notificaciones de aumento de aranceles</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>calcular impacto de subida de aranceles</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>consultar aranceles adicionales</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>consultar derechos antidumping</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>calcular derechos antidumping</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>derechos antidumping por código TARIC</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>alertas antidumping para importadores</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>consultar cuotas compensatorias por fracción arancelaria</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>monitoreo de cuotas compensatorias</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>software classificazione doganale</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>strumento classificazione tariffaria</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>classificazione doganale automatica</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>classificazione doganale con intelligenza artificiale</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>trovare codice doganale prodotto</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>ricerca codice doganale per descrizione</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>verifica codice doganale</td>
+<td>40 / 返回正数</td>
+<td>40 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>ricerca voce doganale</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>ricerca codice HS</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>classificazione codice HS</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>software ricerca codici doganali</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>classificazione doganale catalogo prodotti</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>ricerca codice NC</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>ricerca codice TARIC</td>
+<td>40 / 返回正数</td>
+<td>40 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>ricerca aliquota dazio per codice doganale</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>consultazione dazi per paese di origine</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>calcolatore dazi doganali</td>
+<td>140 / 返回正数</td>
+<td>140 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>simulatore dazi importazione</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>calcolo dazi e IVA importazione</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>calcolatore IVA importazione</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>calcolo imposte importazione</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>calcolo oneri doganali</td>
+<td>30 / 返回正数</td>
+<td>30 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>calcolo dazi importazione Cina</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>calcolo dazi importazione dagli USA</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>calcolo dazi importazione Italia</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>calcolo dazi importazione negli Stati Uniti</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>calcolatore costo totale importazione</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>simulatore costi importazione</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>software calcolo costi importazione</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>calcolo costo sdoganato</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>calcolo costo merce resa a destino</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>calcolo costo unitario prodotto importato</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>calcolo costo importazione trasporto e dazi</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>calcolo costo importazione con assicurazione</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>calcolo costo importazione per commercio elettronico</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>confronto costi importazione fornitori</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>monitoraggio variazioni dazi doganali</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>notifiche variazione dazi</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>avvisi aumento dazi importazione</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>monitoraggio modifiche codici doganali</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>software monitoraggio dazi</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>calcolo impatto aumento dazi</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>verifica dazi aggiuntivi</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>verifica dazi antidumping</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>calcolo dazio antidumping</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>ricerca dazi antidumping per codice TARIC</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>notifiche dazi antidumping importazione</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>monitoraggio misure antidumping importazione</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>goederencode zoeken</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>goederencode bepalen</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>goederencode controleren</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>goederencode zoeken op productomschrijving</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>software voor goederencodes</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>goederencodes automatisch bepalen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>goederencodes bepalen met AI</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>goederencodes voor productcatalogus</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>software voor tariefindeling</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>douaneclassificatie software</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>HS-code zoeken</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>HS-code bepalen</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>HS-code controleren</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>HS-code zoektool</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>GN-code zoeken</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>TARIC-code zoeken</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>invoerrechten opzoeken per goederencode</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>invoerrechten per land van oorsprong</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>invoerrechten berekenen</td>
+<td>1600 / 返回正数</td>
+<td>1600 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>invoerrechten calculator</td>
+<td>90 / 返回正数</td>
+<td>90 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>douanekosten calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>invoerrechten en btw berekenen</td>
+<td>20 / 返回正数</td>
+<td>20 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>btw bij invoer berekenen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>invoerheffingen berekenen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>invoerrechten China berekenen</td>
+<td>170 / 返回正数</td>
+<td>170 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>invoerrechten Amerika berekenen</td>
+<td>110 / 返回正数</td>
+<td>110 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>invoerrechten Nederland berekenen</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>invoerrechten bij import in de VS berekenen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>totale importkosten berekenen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>importkosten calculator</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>software importkosten berekenen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>kostprijs import berekenen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>kostprijs geïmporteerd product berekenen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>importkosten per stuk berekenen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>importkosten inclusief transport en douane</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>importkosten inclusief verzekering berekenen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>importkosten berekenen voor webshops</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>importkosten leveranciers vergelijken</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>wijzigingen invoerrechten volgen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>melding wijziging invoerrechten</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>software invoerrechten monitoren</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>wijzigingen goederencodes bijhouden</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>gevolgen hogere invoerrechten berekenen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>extra invoerrechten controleren</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>antidumpingrechten opzoeken</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>antidumpingrechten berekenen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>antidumpingrechten per goederencode</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>NL</td>
+<td>meldingen antidumpingmaatregelen</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>HSコード 検索 ツール</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>HSコード 調べる</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>商品名からHSコードを調べる</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>商品説明からHSコードを検索</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>HSコード 自動判定</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>HSコード 分類 ソフト</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>HSコード AI 分類</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>HSコード 一括分類</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>HSコード 確認 ツール</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>品目分類 支援 システム</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>輸入品 品目分類 ツール</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>関税分類 検索</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>輸入統計品目番号 検索</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>実行関税率表 検索</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>HSコード別 関税率 検索</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>原産国別 関税率 検索</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>関税 計算 ツール</td>
+<td>720 / 返回正数</td>
+<td>720 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>関税 シミュレーター</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>輸入関税 計算機</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>関税 消費税 自動計算</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>輸入消費税 計算 ツール</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>輸入税額 概算</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>中国輸入 関税 計算</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>アメリカから輸入 関税 計算</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>日本輸入 関税 計算</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>米国輸入 関税 計算</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>輸入原価 計算 ツール</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>輸入コスト 計算 ソフト</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>輸入総費用 シミュレーション</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>輸入仕入原価 計算</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>輸入原価 単価 計算</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>輸入原価 運賃 保険料 計算</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>輸入費用 関税 送料 込み 計算</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>輸入原価 ネットショップ 計算</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>輸入コスト 仕入先 比較</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>関税率 変更 通知</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>関税 改正 アラート</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>HSコード 変更 通知</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>関税率 変更 自動チェック</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>追加関税 対象品目 検索</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>関税引き上げ コスト 計算</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>不当廉売関税 対象品目 検索</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>不当廉売関税 税率 検索</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>不当廉売関税 計算</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>アンチダンピング関税 対象 確認</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>アンチダンピング関税 変更 通知</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>不当廉売関税 課税開始 通知</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>HS코드 검색</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>HS코드 조회 도구</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>상품명으로 HS코드 찾기</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>상품 설명으로 HS코드 검색</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>HS코드 자동 분류</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>HS코드 인공지능 분류</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>HS코드 일괄 분류</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>HS코드 검증 프로그램</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>품목분류 프로그램</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>수입물품 품목분류 도구</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>품목번호 조회</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>HSK 코드 조회</td>
+<td>40 / 返回正数</td>
+<td>40 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>관세율표 검색</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>품목별 관세율 조회</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>원산지별 관세율 조회</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>관세 계산기</td>
+<td>2900 / 返回正数</td>
+<td>2900 / 返回正数</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>수입관세 계산기</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>관부가세 계산기</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>사업자 수입 관세 계산</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>수입 부가세 계산기</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>HS코드별 관세 계산</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>수입 세금 계산기</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>중국 수입 관세 계산</td>
+<td>70 / 返回正数</td>
+<td>70 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>미국 수입 관세 계산</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>한국 수입 관세 계산</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>미국 HTS 관세 계산기</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>수입원가 계산기</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>수입원가 계산 프로그램</td>
+<td>10 / 返回正数</td>
+<td>10 / 返回正数</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>수입 총비용 계산</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>수입 상품 단가 계산</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>수입원가 운임 보험료 계산</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>수입비용 관세 배송비 계산</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>온라인 쇼핑몰 수입원가 계산</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>수입 공급업체별 원가 비교</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>관세율 변경 알림</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">9</td>
+<td>其他市场同类任务：不计美国切口主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>관세율 변동 모니터링</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>HS코드 변경 알림</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>품목분류 변경 알림</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>추가관세 대상 조회</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>관세 인상 원가 계산</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>덤핑방지관세 조회</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>덤핑방지관세 계산</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>덤핑방지관세 대상 품목 조회</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>덤핑방지관세율 조회</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>덤핑방지관세 변경 알림</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>반덤핑 관세 모니터링</td>
+<td>0 / 供应商返回0</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>덤핑방지관세 부과 알림</td>
+<td>未返回 / 未返回</td>
+<td>未找到 / 未返回</td>
+<td style="text-align: right;">0</td>
+<td>相邻任务或表达不对口：不计主评分</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_1">主任务结果入口</h2>
+<h3 id="tariff-monitoring-software9">tariff monitoring software（供应商样本9条）</h3>
+<ul>
+<li>
+<ol>
+<li><a href="https://www.kygtrade.com/solutions/by-role/tariff-finance">kygtrade.com</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.freehand.ai/articles/best-tariff-monitoring-software">freehand.ai</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.trade.gov/fta-tariff-tool-home">trade.gov</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://umbrex.com/resources/how-to-navigate-a-high-tariff-environment/implementing-tariff-monitoring-tools-and-systems/">umbrex.com</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.atlanticcouncil.org/programs/geoeconomics-center/trump-tariff-tracker/">atlanticcouncil.org</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://borderlinegenius.com/products/tariff-genius-software">borderlinegenius.com</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.customsinfo.com/knowledge-center/how-to-choose-the-right-software-vendor-to-manage-tariff-volatility/">customsinfo.com</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://gingercontrol.com/blog/tariff-management-software">gingercontrol.com</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://rgsciences.com/resources/tariff-tracker">rgsciences.com</a></li>
+</ol>
+</li>
+</ul>
+<h3 id="tariff-change-alerts9">tariff change alerts（供应商样本9条）</h3>
+<ul>
+<li>
+<ol>
+<li><a href="https://www.usitc.gov/tariff_affairs_announcements.htm">usitc.gov</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://pagecrawl.io/tools/section-232-tariff-hts-2026-change-monitoring.html">pagecrawl.io</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.atlanticcouncil.org/programs/geoeconomics-center/trump-tariff-tracker/">atlanticcouncil.org</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.customsgenius.com/articles/tariff-change-alerts-only-for-products-i-import">customsgenius.com</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.importcostcalculator.com/tariff-alerts.html">importcostcalculator.com</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://globaltradealert.org/">globaltradealert.org</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.whitehouse.gov/presidential-actions/2025/07/further-modifying-the-reciprocal-tariff-rates/">whitehouse.gov</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.anderinger.com/media/trade-alerts/">anderinger.com</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://zonos.com/docs/guides/us-tariff-changes">zonos.com</a></li>
+</ol>
+</li>
+</ul>
+<h3 id="tariff-alerts-by-hts-code9">tariff alerts by hts code（供应商样本9条）</h3>
+<ul>
+<li>
+<ol>
+<li><a href="https://hts.usitc.gov/">usitc.gov</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://gingercontrol.com/blog/personalized-tariff-alerts-by-hts-code">gingercontrol.com</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://ustariffrates.com/alerts">ustariffrates.com</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.ups.com/us/en/supplychain/logistics-solutions/customs-brokerage/importers-guide-to-hts-codes">ups.com</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.usitc.gov/glossary/term/harmonized_tariff_schedule_united_states_hts.htm">usitc.gov</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.logisticsplus.com/global-logistics-alert-revisions-to-hts-codes/">logisticsplus.com</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://usacustomsclearance.com/hts-code-lookup/">usacustomsclearance.com</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.customsgenius.com/articles/tariff-change-alerts-only-for-products-i-import">customsgenius.com</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.shopify.com/blog/hts-codes">shopify.com</a></li>
+</ol>
+</li>
+</ul>
+<h3 id="import-duty-change-notifications9">import duty change notifications（供应商样本9条）</h3>
+<ul>
+<li>
+<ol>
+<li><a href="https://www.customsgenius.com/articles/tariff-change-alerts-only-for-products-i-import">customsgenius.com</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.usitc.gov/covid_19_related_goods_us_imports_and_tariffs_sign.htm">usitc.gov</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.instagram.com/p/DYQs09YARMV/">instagram.com</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://tariffclassify.ai/tariff-rate-alerts">tariffclassify.ai</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://pagecrawl.io/blog/tariff-trade-policy-monitoring-import-duty-changes">pagecrawl.io</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.importcostcalculator.com/tariff-alerts.html">importcostcalculator.com</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.swlaw.com/publication/new-customs-enforcement-order-gives-importers-a-limited-window-to-review-tariff-driven-import-practices/">swlaw.com</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.fedex.com/en-us/shipping/international/us-tariffs-impact.html">fedex.com</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><a href="https://www.anderinger.com/media/trade-alerts/">anderinger.com</a></li>
+</ol>
+</li>
+</ul>
+<h3 id="tariff-alerts-for-small-importers0">tariff alerts for small importers（供应商样本0条）</h3>
+<ul>
+<li>补查相关入口：https://htsalert.com/about</li>
+<li>补查相关入口：https://htshero.com/tariff-monitor</li>
+<li>补查相关入口：https://gingercontrol.com/products/compliance-radar</li>
+</ul></section><section id="sop-criteria"><h2 class="sec">sop-criteria.md</h2><p>【对齐需求发掘专员的筛选标准——这是本次调查的核心依据】
+其打分 5 项（各 1–5）：①需求真实 ②付费意愿 ③好服务（用户非专业、要求不高；不限 B 端，C 端也可以，B 端小老板只是加分；专业挑剔或出错要担大责任的扣分）④小团队做得动 ⑤形态简单（表单类）；①或②&lt;3 不推荐。原则：AI 时代赋能（AI 越强产品越好，用户不会因有 AI 就不用）；门槛：对标产品已验证 PMF——且 PMF 必须对得上<strong>当前切口</strong>，大品类有人付费不能直接证明这个小功能有人另付钱。
+初步报告须先钉死：谁、输入、输出、单一用户任务；相邻机会拆开，不混进同一条五项打分。</p>
+<p>你的任务是逐项核实/推翻它给的分数和证据，而不是另起一套标准：
+- 关卡1 核①：逐页打开原帖核对原话和日期（近半年优先），给出你核实后的分数。
+- 关卡2 核②+PMF：官网核实竞品价格、客户数、融资、流量；"有成熟对标产品在收钱"是通过信号，不是否决理由——但必须是当前切口的对标，不是相邻大品类。
+- 关卡3 核③④⑤+切入可行性：不要因为"已有竞品/低价竞品"就止损。只在以下情况止损：免费方案已足够好且用户满意、或头部产品价格已低到小团队无利可图、或差评里找不到任何可切入缺口、或研发/合规负担超出小团队。要明确写出小团队可切的缝隙及证据。
+- 关卡4 市场体量，关卡5 核"AI 时代赋能"是否成立。
+报告开头列一张表：5 项"专员原分 / 核实后分 / 关键证据"；首屏另给三维决策（需求／独立收费／SEO 优先级），总分可放附录。</p></section><section id="sop-v3"><h2 class="sec">sop-v3.md</h2><p>【入口铁律】新赛道必须先有需求发掘专员的初步报告与五项打分，再进入本 SOP 深挖。用户口头点题也先转需求发掘专员，禁止未经初步直接扩词/SERP/写报告。</p>
+<p>你是赛道深度调查员。需求来源报告：<strong>SRC</strong>。中文，精炼。每个数据附来源链接，查不到写"未找到"，严禁编造。
+核心原则：有竞品不是否决理由。竞品赚钱多说明市场被验证，做老二也可以。我们主打 SEO。
+团队在中国做出海：只做能远程成交的软件/SaaS 获客，不做必须本地履约的服务需求。</p>
+<p>【先钉死研究对象】报告开头必须固定：谁、输入是什么、输出是什么、本次只判断哪一个用户任务。
+- 相邻机会（相近但输入/输出不同）只列表，不贡献搜索量、付费证明或竞争评分。
+- 例：播客转文字 ≠ 已有文字稿→发布素材 ≠ 播客内容搜索，必须拆开。
+- 第一行一句话定位仍要写："这个产品帮助【什么人】，在【什么场景】下，解决【什么问题】。"标题用直白话，术语首次出现要解释。</p>
+<p>【第一步：核实赛道】确认需求真假（专员数据、原帖、竞品价格/客户数、Reddit Arctic Shift）。只有需求假或无人付费才停。用户原声要写清：什么用户、原话、抱怨的是哪一步、是否提过现用工具和付费。</p>
+<p>【第二步：调查关键词】
+1. <strong>按用户任务覆盖，不硬凑数量</strong>：先围绕已明确的用户任务找核心词、同义表达、具体场景词；确认相关后再扩市场。初筛可从几十个高相关词开始，不设「每种语言约 300」硬指标。
+2. 每个词都要能回答：搜这个词的人进入我们计划做的页面，能不能直接得到他想要的结果？不能 → 移到相邻机会或排除记录，不能因词里有同类行业词就硬套。
+3. 市场（只保留主要发达市场）：US、UK、CA、AU、DE、FR、ES、IT、NL、JP、KR。各国用当地语言查 Google 月搜索量。英语 en.txt 共用四英语市场；de/fr/es/it/nl/ja/ko 各自本地说法扩词。
+4. <strong>SERP 规则（2026-10-24 改）</strong>：
+   - <strong>核心需求词</strong>：无论月搜高低，都查实际搜索结果（确认意图、直接竞品、预期功能）。低量只影响 SEO 优先级，不能成为「不理解这个需求」的理由。
+   - <strong>外围扩展词</strong>：再用「该市场月搜 &gt; 200」控制调查成本；≤200 只记量。
+5. <strong>出海筛选（标配）</strong>：即使月搜&gt;200，若该词是「只有本地成交才能变现」的当地服务需求，也直接跳过 SERP，只记量并标注「本地服务跳过」。（保留找软件/系统/SaaS 的词。）
+6. <strong>搜索量记录</strong>：分清「返回正数 / 供应商返回 0 / 未返回 / 未查询」。没有查到数值，不能写成「未找到≤200」。</p>
+<p>【第三步：研究竞争格局】
+- <strong>按用户任务分组</strong>，再比较不同国家表现。同一任务的多种搜索表达合成一个需求组，不要「每个市场×关键词各写一套赛道结论」。
+- 用该国 Google 看前十；域名注册年龄保留为证据：<strong>近1年或近18个月≥2个、近18个月1个</strong> 仅标为观察线索（「样本中有年轻域名入榜，值得继续查」），<strong>不得直接升级为「新手友好／容易做」</strong>。还要看排名页满足什么需求、功能特点、有无可比小站、我们能否交付。DR 仅参考。样本不足完整前十时，必须写明样本条数，不得下满额结论。
+- 意图是否对口；该词头部/中小玩家与切入点。
+- 正文、serp.json、公开页必须读同一份<strong>最终判定表</strong>；旧标签可留在原始数据，但不得被后续汇总当最终结论。</p>
+<p>【第四步：投入产出与结论】
+- <strong>首屏三维决策</strong>（先于总分）：①有没有相关需求？②当前切口能否独立收费（待验证／已证明）？③适不适合优先靠 SEO 做站？
+- 总分满分 100 可留作内部筛选记录，放附录；五项评分里若未直接评 SEO 获客可行性，不要用总分冒充 SEO 优先级。
+- 验证指标必须分开：<strong>首付、复用、续费</strong>。月订阅看首付+使用、到续订周期再看续费；按次收费才看「第二单是否再买」。不要把套餐内再用当成再付。
+- 写清最小验证动作与停止条件；记录用时。</p>
+<p>【报告结构三层】
+1. 一分钟看懂：研究哪个需求、当前建议、最关键支持/反对理由、哪个未知会改决定、下一步验证。
+2. 判断依据：场景与问题 → 现有解法与痛点 → 需求证据与反证 → 能承接的词与直接竞品 → 最小验证与停止条件。每节先结论再少量证据；每条重要证据说明支持什么、不能证明什么。
+3. 可展开证据与方法：完整国家/词表、剔除词及原因、旧评分修正、域名核验、DNS/重试/计时、SOP 与原始文件。影响决策的限制（如某国数据缺失）须留在正文，细节日志可附录。</p>
+<p>【验收】看完首屏应能说清：谁要什么、我们交付什么、有什么证据、为什么值得或不值得继续、下一步验证什么。说不清就继续改；关键词数量和报告长度不算完成标准。</p>
+<p>serp.py：准备 kw 目录（en.txt/de.txt/…），然后
+  python3 /workspace/research/serp.py <kw目录> &lt;输出目录&gt;
+核心词清单可单独标记，脚本侧逐步支持「核心词无视 200 门槛」；在脚本未改完前，人工保证核心词必做 SERP。</p>
+<p>【交付】报告里只写 https 外链；不要写 /workspace 本机路径。证据文件打进同名 zip，附件发 zip，并附公开网页链接。每个核心结论要有可打开的证据入口。</p></section><section id="files"><h2 class="sec">证据文件（原始数据）</h2><ul><li><a href="kw/core.txt">kw/core.txt</a> (1 KB)</li><li><a href="kw/de.txt">kw/de.txt</a> (1 KB)</li><li><a href="kw/en.txt">kw/en.txt</a> (1 KB)</li><li><a href="kw/es.txt">kw/es.txt</a> (1 KB)</li><li><a href="kw/fr.txt">kw/fr.txt</a> (1 KB)</li><li><a href="kw/it.txt">kw/it.txt</a> (1 KB)</li><li><a href="kw/ja.txt">kw/ja.txt</a> (1 KB)</li><li><a href="kw/ko.txt">kw/ko.txt</a> (1 KB)</li><li><a href="kw/nl.txt">kw/nl.txt</a> (1 KB)</li><li><a href="report.md">report.md</a> (25 KB)</li><li><a href="serp.json">serp.json</a> (1013 KB)</li><li><a href="serp.md">serp.md</a> (77 KB)</li><li><a href="sop-criteria.md">sop-criteria.md</a> (1 KB)</li><li><a href="sop-v3.md">sop-v3.md</a> (5 KB)</li><li><a href="timing.txt">timing.txt</a> (0 KB)</li><li><a href="小进口商HS编码归类关税预警-60分.md">小进口商HS编码归类关税预警-60分.md</a> (25 KB)</li></ul></section></div></body></html>
